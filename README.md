@@ -1,4 +1,6 @@
-# PORTAINER DOCKER COMPOSE
+# MY DOCKER COMPOSE
+
+Several docker-compose to set up various services
 
 ## Docker
 

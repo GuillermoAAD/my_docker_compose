@@ -1,8 +1,7 @@
 services:
   postgres:
     image: postgres:latest
-    restart: unless-stopped
-    container_name: my_postgres
+    container_name: postgres
     environment:
       POSTGRES_USER: postgres_user
       POSTGRES_PASSWORD: password
@@ -11,6 +10,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
 
 volumes:
   postgres_data:

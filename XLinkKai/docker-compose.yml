@@ -1,0 +1,16 @@
+services:
+  xlink-kai:
+    build: .
+    container_name: xlink-kai
+    # network_mode: host  # Required for local network access #Only works on Linux, use ports instead
+    ports:
+      - "34522:34522"
+    cap_add:
+      - NET_ADMIN       # Permisos para configurar la red
+    restart: unless-stopped
+    volumes:
+      - ./xlink-config:/etc/xlinkkai  # Persist settings (optional)
+    environment:
+      - DISPLAY=:0       # Only needed if you use GUI (e.g. on Linux with X11)
+    devices:
+      - "/dev/net/tun"   # Required for TAP/TUN mode (optional, depends on usage)

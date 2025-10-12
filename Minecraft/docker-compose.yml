@@ -1,0 +1,15 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    container_name: minecraft_server
+    ports:
+      - "${PORT}:25565"
+    environment:
+      EULA: "TRUE"
+      VERSION: "1.21.4"
+      TYPE: "PAPER"
+      ONLINE_MODE: "TRUE"
+      MEMORY: "4G"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
